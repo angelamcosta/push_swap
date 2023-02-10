@@ -4,6 +4,8 @@ CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra
 RM		=	rm -f
 
+SRCS	=	push_swap.c push_swap_utils.c
+
 RED		=	\033[91;1m
 GREEN	=	\033[92;1m
 YELLOW	=	\033[93;1m
@@ -16,7 +18,7 @@ all:	$(NAME)
 $(NAME):
 		@echo "$(BLUE)Make all$(CLEAR)\n$(PINK)Compiling.$(CLEAR)"
 		@sleep 0.2
-		@$(CC) $(CFLAGS) -o $(NAME) $(NAME).c
+		@$(CC) $(CFLAGS) -o $(NAME) $(SRCS)
 		@echo "$(GREEN)Success!$(CLEAR)\n$(YELLOW)Finished$(CLEAR)\n"
 
 clean:
