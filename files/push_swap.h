@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/17 16:56:12 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/17 17:34:05 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,5 +41,6 @@ int		ft_atoi(char *str);
 t_stack	*stacks(void);
 int		create_stacks(void);
 void	populate_stacks(char **argv);
+void	sort_stack_a(void);
 
 #endif
