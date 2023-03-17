@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/17 16:44:30 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/17 16:56:12 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,6 @@ void	ft_rotate_rr(void);
 void	ft_swap_a(void);
 void	ft_swap_b(void);
 void	ft_swap_ss(void);
-int		ft_strlen(char *str);
-char	*ft_strjoin(char *str1, char *str2);
 int		ft_atoi(char *str);
 t_stack	*stacks(void);
 int		create_stacks(void);
