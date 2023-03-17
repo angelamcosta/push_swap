@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/17 16:22:27 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/17 16:44:30 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,12 @@ typedef struct s_stack
 
 void	ft_push_a(void);
 void	ft_push_b(void);
+void	ft_reverser_a(void);
+void	ft_reverser_b(void);
+void	ft_reverser_rr(void);
+void	ft_rotate_a(void);
+void	ft_rotate_b(void);
+void	ft_rotate_rr(void);
 void	ft_swap_a(void);
 void	ft_swap_b(void);
 void	ft_swap_ss(void);
