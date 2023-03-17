@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/17 17:33:07 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/17 18:03:19 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -60,7 +60,6 @@ void	populate_stacks(char **argv)
 	}
 	stacks()->cont_a = stacks()->size_a - stacks()->size_b;
 	stacks()->cont_b = stacks()->size_b;
-	sort_stack_a();
 }
 
 void	sort_stack_a(void)
@@ -76,5 +75,34 @@ void	sort_stack_a(void)
 	{
 		ft_reverser_a();
 		ft_swap_a();
+	}
+}
+
+void	sort_all(void)
+{
+	int	*a;
+	int	*b;
+	int	i;
+	int	j;
+
+	sort_stack_a();
+	a = stacks()->a;
+	b = stacks()->b;
+	i = 0;
+	while (stacks()->cont_b > 0)
+	{
+		while (b[0] > a[i])
+			i++;
+		if (i == 0)
+			ft_push_a();
+		else
+		{
+			j = i;
+			while (j-- > 0)
+				ft_rotate_a();
+			ft_push_a();
+			while (i-- > 0)
+				ft_reverser_a();
+		}
 	}
 }
