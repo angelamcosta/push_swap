@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:24:08 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/17 16:21:06 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/19 16:37:51 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,61 +14,44 @@
 
 void	ft_push_a(void);
 void	ft_push_b(void);
+void	ft_push(int *a, int *b, int *cont_a, int *cont_b);
 
 void	ft_push_a(void)
 {
-	int	i;
-	int	j;
-
-	i = stacks()->cont_a;
-	while (i >= 0)
-	{
-		if (i == 0)
-		{
-			stacks()->a[0] = stacks()->b[0];
-			j = -1;
-			while (++j < stacks()->cont_b)
-			{
-				if (j == stacks()->cont_b - 1)
-					stacks()->b[j] = 0;
-				else
-					stacks()->b[j] = stacks()->b[j + 1];
-			}
-		}
-		else
-			stacks()->a[i] = stacks()->a[i - 1];
-		i--;
-	}
-	stacks()->cont_a++;
-	stacks()->cont_b--;
+	ft_push(stacks()->a, stacks()->b, &stacks()->cont_a, &stacks()->cont_b);
 	write(1, "pa\n", 3);
 }
 
 void	ft_push_b(void)
 {
+	ft_push(stacks()->b, stacks()->a, &stacks()->cont_b, &stacks()->cont_a);
+	write(1, "pb\n", 3);
+}
+
+void	ft_push(int *a, int *b, int *cont_a, int *cont_b)
+{
 	int	i;
 	int	j;
 
-	i = stacks()->cont_b;
+	i = cont_a[0];
 	while (i >= 0)
 	{
 		if (i == 0)
 		{
-			stacks()->b[0] = stacks()->a[0];
+			a[0] = b[0];
 			j = -1;
-			while (++j < stacks()->cont_a)
+			while (++j < cont_b[0])
 			{
-				if (j == stacks()->cont_a - 1)
-					stacks()->a[j] = 0;
+				if (j == cont_b[0] - 1)
+					b[j] = 0;
 				else
-					stacks()->a[j] = stacks()->a[j + 1];
+					b[j] = b[j + 1];
 			}
 		}
 		else
-			stacks()->b[i] = stacks()->b[i - 1];
+			a[i] = a[i - 1];
 		i--;
 	}
-	stacks()->cont_a--;
-	stacks()->cont_b++;
-	write(1, "pb\n", 3);
+	cont_a[0]++;
+	cont_b[0]--;
 }
