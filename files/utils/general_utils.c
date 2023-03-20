@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:46:17 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/20 16:12:42 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:30:47 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,9 @@
 
 t_stack	*stacks(void);
 int		ft_atoi(char *str);
+int		is_valid(char **argv);
+int		is_numeric(char c);
+int		verify_str(char *str);
 
 t_stack	*stacks(void)
 {
@@ -40,4 +43,37 @@ int	ft_atoi(char *str)
 	if (str[0] == '-')
 		nb *= -1;
 	return (nb);
+}
+
+int	is_valid(char **argv)
+{
+	int	i;
+
+	i = 1;
+	while (argv && argv[i])
+	{
+		if (!verify_str(argv[i]))
+			return (0);
+		i++;
+	}
+	return (1);
+}
+
+int	is_numeric(char c)
+{
+	return (c >= 48 && c <= 57);
+}
+
+int	verify_str(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str && str[i])
+	{
+		if (!is_numeric(str[i]))
+			return (0);
+		i++;
+	}
+	return (1);
 }
