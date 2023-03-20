@@ -6,13 +6,21 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:46:17 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/17 16:56:07 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/20 16:12:42 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
+t_stack	*stacks(void);
 int		ft_atoi(char *str);
+
+t_stack	*stacks(void)
+{
+	static t_stack	stacks;
+
+	return (&stacks);
+}
 
 int	ft_atoi(char *str)
 {
