@@ -36,5 +36,5 @@ The subject of the project can be found in [this link](https://raw.githubusercon
 
 ## Tasks
 
-- :white_large_square: The “push_swap” program
+- :ballot_box_with_check: The “push_swap” program
 - :white_large_square: The “checker” program
