@@ -6,13 +6,12 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/20 14:02:20 by anlima           ###   ########.fr       */
+/*   Updated: 2023/03/20 17:10:34 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
-# include <stdio.h>
 # include <unistd.h>
 # include <stdlib.h>
 
@@ -46,7 +45,7 @@ int		ft_atoi(char *str);
 int		create_stacks(void);
 void	populate_stacks(char **argv);
 void	sort_stack_a(void);
-void	sort_stack_b(void);
-void	sort_all(void);
+void	sort_stack_all(void);
+void	sort_all(int i, int j);
 
 #endif
