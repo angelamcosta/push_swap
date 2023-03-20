@@ -21,7 +21,7 @@
 
 ## Introduction
 
-This aim of this project is to sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. 
+The aim of this project is to sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. 
 
 The subject of the project can be found in [this link](https://raw.githubusercontent.com/angelamcosta/push_swap/main/en.subject.pdf).
 
