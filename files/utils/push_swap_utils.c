@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/20 17:11:04 by anlima           ###   ########.fr       */
+/*   Updated: 2023/04/11 15:38:36 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ int	create_stacks(void)
 
 void	populate_stacks(char **argv)
 {
-	int		i;
-	int		j;
+	int	i;
+	int	j;
 
 	if (create_stacks())
 	{
@@ -93,7 +93,7 @@ void	sort_stack_all(void)
 }
 
 void	sort_all(int i, int j)
-{	
+{
 	if (i <= ((stacks()->cont_a - 1) / 2))
 	{
 		ft_swap_a();
