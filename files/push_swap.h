@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/03/20 17:30:58 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/12 14:30:50 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define PUSH_SWAP_H
 # include <unistd.h>
 # include <stdlib.h>
+# include <limits.h>
 
 typedef struct s_stack
 {
@@ -42,13 +43,16 @@ void	ft_swap_ss(void);
 void	ft_swap(int *a);
 t_stack	*stacks(void);
 int		ft_atoi(char *str);
-int		is_valid(char **argv);
 int		is_numeric(char c);
+int		is_valid(char **argv);
 int		verify_str(char *str);
-int		create_stacks(void);
-void	populate_stacks(char **argv);
 void	sort_stack_a(void);
+int		create_stacks(void);
 void	sort_stack_all(void);
 void	sort_all(int i, int j);
+void	populate_stacks(char **argv);
+int		is_sorted(int *a);
+int		is_overflow(char **argv);
+int		has_repeats(int *a, int size_a);
 
 #endif

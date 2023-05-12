@@ -6,17 +6,17 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/04/11 15:38:36 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/12 14:30:27 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int		create_stacks(void);
-void	populate_stacks(char **argv);
 void	sort_stack_a(void);
+int		create_stacks(void);
 void	sort_stack_all(void);
 void	sort_all(int i, int j);
+void	populate_stacks(char **argv);
 
 int	create_stacks(void)
 {
@@ -27,7 +27,10 @@ int	create_stacks(void)
 	{
 		stacks()->b = (int *)malloc((sizeof(int)) * (stacks()->size_b));
 		if (!stacks()->b)
+		{
+			free(stacks()->a);
 			return (0);
+		}
 	}
 	return (1);
 }
@@ -46,6 +49,9 @@ void	populate_stacks(char **argv)
 			stacks()->a[j++] = ft_atoi(argv[i]);
 			stacks()->cont_a++;
 		}
+		if (is_sorted(stacks()->a)
+			|| has_repeats(stacks()->a, stacks()->size_a))
+			return ;
 		while (stacks()->cont_a != 3)
 		{
 			if (stacks()->a[0] > stacks()->a[0])

@@ -4,7 +4,7 @@ CC		=	cc
 CFLAGS	=	-Wall -Werror -Wextra
 RM		=	rm -f
 
-SRCS	=	push_swap.c ./utils/push_swap_utils.c ./utils/general_utils.c ./operations/operations_swap.c ./operations/operations_push.c ./operations/operations_rotate.c ./operations/operations_reverse.c
+SRCS	=	push_swap.c ./utils/general_utils.c ./utils/push_swap_utils.c ./utils/verifications_utils.c ./operations/operations_push.c ./operations/operations_reverse.c ./operations/operations_rotate.c ./operations/operations_swap.c
 
 RED		=	\033[91;1m
 GREEN	=	\033[92;1m
