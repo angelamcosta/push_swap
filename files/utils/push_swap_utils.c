@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/12 14:30:27 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:59:20 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,15 +42,14 @@ void	populate_stacks(char **argv)
 
 	if (create_stacks())
 	{
-		i = 0;
+		i = -1;
 		j = 0;
 		while (argv && argv[++i])
 		{
 			stacks()->a[j++] = ft_atoi(argv[i]);
 			stacks()->cont_a++;
 		}
-		if (is_sorted(stacks()->a)
-			|| has_repeats(stacks()->a, stacks()->size_a))
+		if (is_sorted(stacks()->a) || has_repeats())
 			return ;
 		while (stacks()->cont_a != 3)
 		{

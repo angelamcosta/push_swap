@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:12:50 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/12 14:30:41 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/17 14:58:53 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 int	is_sorted(int *a);
 int	is_overflow(char **argv);
-int	has_repeats(int *a, int size_a);
+int	has_repeats(void);
 
 int	is_sorted(int *a)
 {
@@ -29,29 +29,29 @@ int	is_sorted(int *a)
 	return (1);
 }
 
-int	has_repeats(int *a, int size_a)
+int	has_repeats(void)
 {
 	int	i;
 	int	j;
 	int	*b;
 
 	i = -1;
-	b = (int *)malloc(sizeof(int) * size_a);
+	b = (int *)malloc(sizeof(int) * stacks()->size_a);
 	if (!b)
 		return (0);
-	while (a && a[++i])
+	while (stacks()->a && stacks()->a[++i])
 	{
 		j = 0;
 		while (b && j < i)
 		{
-			if (b[j] == a[i])
+			if (b[j] == stacks()->a[i])
 			{
 				free(b);
 				return (1);
 			}
 			j++;
 		}
-		b[i] = a[i];
+		b[i] = stacks()->a[i];
 	}
 	free(b);
 	return (0);

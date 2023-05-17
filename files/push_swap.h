@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/12 14:30:50 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/17 15:03:21 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 # include <unistd.h>
 # include <stdlib.h>
 # include <limits.h>
+# include <stdio.h>
 
 typedef struct s_stack
 {
@@ -53,6 +54,6 @@ void	sort_all(int i, int j);
 void	populate_stacks(char **argv);
 int		is_sorted(int *a);
 int		is_overflow(char **argv);
-int		has_repeats(int *a, int size_a);
+int		has_repeats(void);
 
 #endif
