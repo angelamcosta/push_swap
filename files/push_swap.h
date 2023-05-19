@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/19 19:56:22 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/19 22:24:50 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,8 @@
 
 typedef struct s_list
 {
+	int				curr_index;
+	int				final_index;
 	int				content;
 	struct s_list	*next;
 }				t_list;
@@ -27,6 +29,7 @@ typedef struct s_stacks
 {
 	t_list	*a;
 	t_list	*b;
+	t_list	*sorted;
 }				t_stacks;
 
 void		ft_push_a(void);
@@ -46,6 +49,8 @@ void		ft_swap_ss(void);
 void		ft_swap(t_list **from);
 t_stacks	*stacks(void);
 int			ft_atoi(char *str);
+void		sort_stack_a(void);
+void		sort_stack_all(void);
 void		populate_stacks(char **argv);
 t_list		*ft_lstnew(int content);
 int			ft_lstsize(t_list *list);
