@@ -6,55 +6,26 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:12:50 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/17 14:58:53 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/19 19:31:51 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-int	is_sorted(int *a);
+int	is_sorted(t_list *list);
+int	verify_str(char **argv);
 int	is_overflow(char **argv);
-int	has_repeats(void);
+int	has_repeats(t_list *list);
 
-int	is_sorted(int *a)
+int	is_sorted(t_list *list)
 {
-	int	i;
-
-	i = -1;
-	while (a && a[++i])
+	while (list)
 	{
-		if (a[i + 1] && (a[i] > a[i + 1]))
+		if (list->next && (list->content > list->next->content))
 			return (0);
+		list = list->next;
 	}
 	return (1);
-}
-
-int	has_repeats(void)
-{
-	int	i;
-	int	j;
-	int	*b;
-
-	i = -1;
-	b = (int *)malloc(sizeof(int) * stacks()->size_a);
-	if (!b)
-		return (0);
-	while (stacks()->a && stacks()->a[++i])
-	{
-		j = 0;
-		while (b && j < i)
-		{
-			if (b[j] == stacks()->a[i])
-			{
-				free(b);
-				return (1);
-			}
-			j++;
-		}
-		b[i] = stacks()->a[i];
-	}
-	free(b);
-	return (0);
 }
 
 int	is_overflow(char **argv)
@@ -70,4 +41,35 @@ int	is_overflow(char **argv)
 			return (1);
 	}
 	return (0);
+}
+
+int	has_repeats(t_list *list)
+{
+	t_list *copy;
+
+	while (list)
+	{
+		copy = list->next;
+		while (copy)
+		{
+			if (copy->content == list->content)
+				return (1);
+			copy = copy->next;
+		}
+		list = list->next;
+	}
+	return (0);
+}
+
+int	verify_str(char **argv)
+{
+	int	i;
+
+	i = -1;
+	while (argv && argv[++i])
+	{
+		if (!(*argv[i] >= 48 && *argv[i] <= 57))
+			return (0);
+	}
+	return (1);
 }

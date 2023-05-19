@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/17 15:03:21 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/19 19:56:22 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,43 +17,44 @@
 # include <limits.h>
 # include <stdio.h>
 
-typedef struct s_stack
+typedef struct s_list
 {
-	int	*a;
-	int	*b;
-	int	size_a;
-	int	size_b;
-	int	cont_a;
-	int	cont_b;
-}				t_stack;
+	int				content;
+	struct s_list	*next;
+}				t_list;
 
-void	ft_push_a(void);
-void	ft_push_b(void);
-void	ft_push(int *a, int *b, int *cont_a, int *cont_b);
-void	ft_reverser_a(void);
-void	ft_reverser_b(void);
-void	ft_reverser_rr(void);
-void	ft_reverser(int *a, int cont_a);
-void	ft_rotate_a(void);
-void	ft_rotate_b(void);
-void	ft_rotate_rr(void);
-void	ft_rotate(int *a, int cont_a);
-void	ft_swap_a(void);
-void	ft_swap_b(void);
-void	ft_swap_ss(void);
-void	ft_swap(int *a);
-t_stack	*stacks(void);
-int		ft_atoi(char *str);
-int		is_numeric(char c);
-int		is_valid(char **argv);
-int		verify_str(char *str);
-void	sort_stack_a(void);
-int		create_stacks(void);
-void	sort_stack_all(void);
-void	sort_all(int i, int j);
-void	populate_stacks(char **argv);
-int		is_sorted(int *a);
-int		is_overflow(char **argv);
-int		has_repeats(void);
+typedef struct s_stacks
+{
+	t_list	*a;
+	t_list	*b;
+}				t_stacks;
+
+void		ft_push_a(void);
+void		ft_push_b(void);
+void		ft_push(t_list **from, t_list **to);
+void		ft_reverser_a(void);
+void		ft_reverser_b(void);
+void		ft_reverser_rr(void);
+void		ft_reverser(t_list **from);
+void		ft_rotate_a(void);
+void		ft_rotate_b(void);
+void		ft_rotate_rr(void);
+void		ft_rotate(t_list **from);
+void		ft_swap_a(void);
+void		ft_swap_b(void);
+void		ft_swap_ss(void);
+void		ft_swap(t_list **from);
+t_stacks	*stacks(void);
+int			ft_atoi(char *str);
+void		populate_stacks(char **argv);
+t_list		*ft_lstnew(int content);
+int			ft_lstsize(t_list *list);
+void		ft_lstiter(t_list *list);
+t_list		*ft_lstlast(t_list *list);
+void		ft_lstadd_back(t_list **list, t_list *new);
+int			is_sorted(t_list *list);
+int			verify_str(char **argv);
+int			is_overflow(char **argv);
+int			has_repeats(t_list *list);
 
 #endif
