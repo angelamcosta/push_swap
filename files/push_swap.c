@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:09:02 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/19 19:53:04 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/20 23:09:18 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,10 @@ int	main(int argc, char **argv)
 	populate_stacks(&argv[1]);
 	if (has_repeats(stacks()->a))
 		return (write(1, "Error\n", 6));
-	ft_lstiter(stacks()->a);
-	ft_lstiter(stacks()->b);
+	while (ft_lstsize(stacks()->b) > 0)
+	{
+		ft_push_a();
+		sort_stack_all();
+	}
 	return (0);
 }

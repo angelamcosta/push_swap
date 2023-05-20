@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/19 22:24:50 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/20 23:36:05 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,6 +49,7 @@ void		ft_swap_ss(void);
 void		ft_swap(t_list **from);
 t_stacks	*stacks(void);
 int			ft_atoi(char *str);
+void		sort_all(int cont);
 void		sort_stack_a(void);
 void		sort_stack_all(void);
 void		populate_stacks(char **argv);

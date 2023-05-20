@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 16:29:12 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/19 19:45:58 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/20 23:29:45 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,12 +19,22 @@ void	ft_rotate(t_list **from);
 
 void	ft_rotate_a(void)
 {
+	if (ft_lstsize(stacks()->b) >= 3 && stacks()->b->content < ft_lstlast(stacks()->b)->content)
+	{
+		ft_rotate_rr();
+		return ;	
+	}
 	ft_rotate(&(stacks()->a));
 	write(1, "ra\n", 3);
 }
 
 void	ft_rotate_b(void)
 {
+	if (stacks()->a->content > ft_lstlast(stacks()->a)->content)
+	{
+		ft_rotate_rr();
+		return ;	
+	}
 	ft_rotate(&(stacks()->b));
 	write(1, "rb\n", 3);
 }
