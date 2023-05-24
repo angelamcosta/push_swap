@@ -1,4 +1,4 @@
-# :arrows_counterclockwise: Push Swap
+# 🔄 Push_swap
 
 <div align=center>
 
@@ -11,30 +11,40 @@
   <img alt="GitHub Language Count" src="https://img.shields.io/github/languages/count/angelamcosta/push_swap" /> <img alt="GitHub Top Language" src="https://img.shields.io/github/languages/top/angelamcosta/push_swap" /> <img alt="GitHub Contributors" src="https://img.shields.io/github/contributors/angelamcosta/push_swap" /> <img alt="GitHub Last Commit" src="https://img.shields.io/github/last-commit/angelamcosta/push_swap" /> <img alt="Github License" src="https://img.shields.io/github/license/angelamcosta/push_swap" /> <a href="https://wakatime.com/badge/user/0c29d5b3-c30b-4e1a-ad07-2da3bd4f7e05/project/dabcdb49-57a2-40f5-af8e-21c8adb85299"><img src="https://wakatime.com/badge/user/0c29d5b3-c30b-4e1a-ad07-2da3bd4f7e05/project/dabcdb49-57a2-40f5-af8e-21c8adb85299.svg" alt="wakatime"></a>
 </div>
 
-## Table of Contents
+Push_swap is a program written in C that solves the sorting problem for two stacks named `a` and `b`. The goal is to sort the numbers in stack `a` in ascending order using a specific set of operations. The program aims to find the smallest list of instructions to achieve the desired sorted state. The subject of the project can be found in this [link](https://raw.githubusercontent.com/angelamcosta/push_swap/main/en.subject.pdf).
 
-- [Introduction](#introduction)
-- [Mandatory part](#mandatory-part)
-  - [The “push_swap” program](#the-push_swap-program)
-  - [Bonus part](#bonus-part)
-- [Tasks](#tasks)
+## 🎮 Game rules
 
-## Introduction
+- The game is composed of 2 stacks named `a` and `b`.
+- To start with:
+  - the stack `a` contains a random amount of negative and/or positive numbers which cannot be duplicated.
+  - `b` is empty.
+- The goal is to sort in ascending order numbers into stack `a`.
+- To do this you have the following operations at your disposal:
 
-The aim of this project is to sort data on a stack, with a limited set of instructions, using the lowest possible number of actions. 
+  - `sa`: swap a - swap the first 2 elements at the top of stack `a`. Do nothing if there is only one or no elements).
+  - `sb`: swap b - swap the first 2 elements at the top of stack `b`. Do nothing if there is only one or no elements).
+  - `ss`: sa and sb at the same time.
+  - `pa`: push a - take the first element at the top of b and put it at the top of `a`. Do nothing if `b` is empty.
+  - `pb`: push b - take the first element at the top of `a` and put it at the top of `b`. Do nothing if `a` is empty.
+  - `ra`: rotate a - shift up all elements of stack `a` by 1. The first element becomes the last one.
+  - `rb`: rotate b - shift up all elements of stack `b` by 1. The first element becomes the last one.
+  - `rr`: ra and rb at the same time.
+  - `rra`: reverse rotate a - shift down all elements of stack `a` by 1. The last element becomes the first one.
+  - `rrb`: reverse rotate b - shift down all elements of stack `b` by 1. The last element becomes the first one.
+  - `rrr`: rra and rrb at the same time.
 
-The subject of the project can be found in [this link](https://raw.githubusercontent.com/angelamcosta/push_swap/main/en.subject.pdf).
+## 🚀 Usage
 
-## Mandatory part
+To use the push_swap program, navigate to the files/ directory and run the following command::
 
-### The push_swap program
+```shell
+make
+```
 
-- The “push_swap” program
+Execute the program by providing the stack `a` as command-line arguments:
+```shell
+./push_swap 2 1 3 6 5 8
+```
 
-### Bonus part
-- The “checker” program
-
-## Tasks
-
-- :ballot_box_with_check: The “push_swap” program
-- :white_large_square: The “checker” program
+The program will display the smallest list of instructions to sort the stack `a`, with the smallest number at the top.
