@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:12:50 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/23 17:31:02 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/24 14:33:19 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ int	is_sorted(t_list *list)
 
 int	is_overflow(long long nb)
 {
-	return (nb >= INT_MAX || nb <= INT_MIN);
+	return (nb > INT_MAX || nb < INT_MIN);
 }
 
 int	has_repeats(t_list *list)
