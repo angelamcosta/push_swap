@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:46:17 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/20 23:37:45 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/24 14:09:58 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,11 +36,7 @@ int	ft_atoi(char *str)
 	if (str[i] == '-')
 		i++;
 	while (i < len)
-	{
 		nb = (nb * 10) + (str[i++] - 48);
-		if (nb > INT_MAX)
-			return (-1);
-	}
 	if (str[0] == '-')
 		nb *= -1;
 	return (nb);
