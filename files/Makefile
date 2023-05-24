@@ -7,6 +7,7 @@ RM		=	rm -f
 SRCS	=	push_swap.c \
 			./utils/general_utils.c \
 			./utils/push_swap_utils.c \
+			./utils/sort_utils.c \
 			./utils/struct_utils.c \
 			./utils/verifications_utils.c \
 			./operations/operations_push.c \

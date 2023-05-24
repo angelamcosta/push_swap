@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/20 23:36:05 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/24 16:50:39 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,6 @@
 
 typedef struct s_list
 {
-	int				curr_index;
-	int				final_index;
 	int				content;
 	struct s_list	*next;
 }				t_list;
@@ -48,11 +46,15 @@ void		ft_swap_b(void);
 void		ft_swap_ss(void);
 void		ft_swap(t_list **from);
 t_stacks	*stacks(void);
+void		bubble_sort(void);
+void		free_stacks(void);
 int			ft_atoi(char *str);
-void		sort_all(int cont);
-void		sort_stack_a(void);
-void		sort_stack_all(void);
+void		free_list(t_list *stack);
 void		populate_stacks(char **argv);
+void		ft_sort(void);
+void		sort_stack_a(void);
+void		sort_stack_b(void);
+void		sort_all(int i, int j);
 t_list		*ft_lstnew(int content);
 int			ft_lstsize(t_list *list);
 void		ft_lstiter(t_list *list);
@@ -60,7 +62,7 @@ t_list		*ft_lstlast(t_list *list);
 void		ft_lstadd_back(t_list **list, t_list *new);
 int			is_sorted(t_list *list);
 int			verify_str(char **argv);
-int			is_overflow(char **argv);
 int			has_repeats(t_list *list);
+int			is_overflow(long long nb);
 
 #endif
