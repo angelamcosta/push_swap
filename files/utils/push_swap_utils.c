@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/24 16:53:02 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/25 19:50:25 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 void	populate_stack_b(void);
 void	populate_stacks(char **argv);
+t_list	*return_middle(t_list **start);
 
 void	populate_stacks(char **argv)
 {
@@ -28,18 +29,41 @@ void	populate_stacks(char **argv)
 	if (is_sorted(stacks()->a) || has_repeats(stacks()->a))
 		return ;
 	bubble_sort();
-	ft_lstiter(stacks()->sorted);
 	populate_stack_b();
 	sort_stack_a();
 }
 
 void	populate_stack_b(void)
 {
+	t_list	*temp;
+
 	while (ft_lstsize(stacks()->a) > 3)
 	{
-		sort_stack_a();
-		ft_push_b();
-		if (ft_lstsize(stacks()->b) >= 3)
-			sort_stack_b();
+		temp = return_middle(&stacks()->sorted);
+		while (ft_lstsize(stacks()->a) < ft_lstsize(temp))
+			temp = return_middle(&temp);
+		if (stacks()->a->content <= temp->content)
+		{
+			ft_push_b();
+			if (ft_lstsize(stacks()->b) >= 3)
+				sort_stack_b();
+		}
+		else
+			ft_rotate_a();
 	}
+}
+
+t_list	*return_middle(t_list **start)
+{
+	t_list	*fast;
+	t_list	*slow;
+
+	fast = *start;
+	slow = *start;
+	while (fast && fast->next)
+	{
+		slow = slow->next;
+		fast = fast->next->next;
+	}
+	return (slow);
 }

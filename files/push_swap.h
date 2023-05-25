@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/24 16:50:39 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/25 19:49:58 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,9 @@ void		bubble_sort(void);
 void		free_stacks(void);
 int			ft_atoi(char *str);
 void		free_list(t_list *stack);
+void		populate_stack_b(void);
 void		populate_stacks(char **argv);
+t_list		*return_middle(t_list **start);
 void		ft_sort(void);
 void		sort_stack_a(void);
 void		sort_stack_b(void);
