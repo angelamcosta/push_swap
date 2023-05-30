@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/25 19:49:58 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/30 17:20:45 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,10 +53,10 @@ void		free_list(t_list *stack);
 void		populate_stack_b(void);
 void		populate_stacks(char **argv);
 t_list		*return_middle(t_list **start);
-void		ft_sort(void);
+void		ft_sort_b(void);
 void		sort_stack_a(void);
 void		sort_stack_b(void);
-void		sort_all(int i, int j);
+void		sort_all_b(int i, int j);
 t_list		*ft_lstnew(int content);
 int			ft_lstsize(t_list *list);
 void		ft_lstiter(t_list *list);
