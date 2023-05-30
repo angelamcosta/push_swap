@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:49:34 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/24 16:50:06 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/30 16:28:35 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,8 +65,7 @@ void	ft_sort(void)
 	}
 	if (i == 0)
 		return ;
-	else
-		sort_all(i, 0);
+	sort_all(i, 0);
 }
 
 void	sort_all(int i, int j)
