@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:46:17 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/24 16:47:10 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:46:56 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,7 @@ int	ft_atoi(char *str)
 void	free_list(t_list *stack)
 {
 	t_list	*temp;
-	
+
 	while (stack)
 	{
 		temp = stack->next;

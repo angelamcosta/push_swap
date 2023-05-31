@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:00:42 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/20 23:29:50 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:46:49 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,8 @@ void	ft_swap(t_list **from);
 
 void	ft_swap_a(void)
 {
-	if (ft_lstsize(stacks()->b) >= 3 && stacks()->b->content < stacks()->b->next->content)
+	if (ft_lstsize(stacks()->b) >= 3
+		&& stacks()->b->content < stacks()->b->next->content)
 	{
 		ft_swap_ss();
 		return ;

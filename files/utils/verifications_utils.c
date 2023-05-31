@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/12 14:12:50 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/24 14:33:19 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:47:06 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,7 +35,7 @@ int	is_overflow(long long nb)
 
 int	has_repeats(t_list *list)
 {
-	t_list *copy;
+	t_list	*copy;
 
 	while (list)
 	{

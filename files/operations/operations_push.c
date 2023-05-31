@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 15:24:08 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/20 23:29:33 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:46:37 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	ft_push(t_list **from, t_list **to)
 	t_list	*temp;
 
 	temp = *from;
-    *from = (*from)->next;
-    temp->next = *to;
-    *to = temp;
+	*from = (*from)->next;
+	temp->next = *to;
+	*to = temp;
 }

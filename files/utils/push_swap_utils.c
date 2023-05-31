@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/30 17:20:24 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:46:59 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ t_list	*return_middle(t_list **start);
 
 void	populate_stacks(char **argv)
 {
-	int		i;
+	int	i;
 
 	i = -1;
 	while (argv && argv[++i])

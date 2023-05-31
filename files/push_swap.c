@@ -6,14 +6,14 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:09:02 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/30 17:20:11 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:47:10 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 int	main(int argc, char **argv)
-{	
+{
 	if (argc <= 1)
 		return (0);
 	if (!(verify_str(&argv[1])))

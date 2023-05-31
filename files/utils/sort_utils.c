@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:49:34 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/30 17:20:54 by anlima           ###   ########.fr       */
+/*   Updated: 2023/05/31 14:47:28 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,12 +16,13 @@ void	ft_sort_b(void);
 void	sort_stack_a(void);
 void	sort_all_b(int i, int j);
 
-
 void	sort_stack_a(void)
 {
-	if (stacks()->a->content > stacks()->a->next->content && stacks()->a->content > ft_lstlast(stacks()->a)->content)
+	if (stacks()->a->content > stacks()->a->next->content
+		&& stacks()->a->content > ft_lstlast(stacks()->a)->content)
 		ft_rotate_a();
-	else if (stacks()->a->next->content > stacks()->a->content && stacks()->a->next->content > ft_lstlast(stacks()->a)->content)
+	else if (stacks()->a->next->content > stacks()->a->content
+		&& stacks()->a->next->content > ft_lstlast(stacks()->a)->content)
 		ft_reverser_a();
 	if (stacks()->a->content > stacks()->a->next->content)
 		ft_swap_a();
