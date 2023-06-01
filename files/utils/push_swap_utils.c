@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/31 14:46:59 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/02 00:32:57 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,14 +40,10 @@ void	populate_stack_b(void)
 	while (ft_lstsize(stacks()->a) > 3)
 	{
 		temp = return_middle(&stacks()->sorted);
-		while (ft_lstsize(stacks()->a) < ft_lstsize(temp))
-			temp = return_middle(&temp);
-		if (stacks()->a->content <= temp->content)
-		{
+		if (ft_lstsize(stacks()->a) < ft_lstsize(temp))
 			ft_push_b();
-			if (ft_lstsize(stacks()->b) >= 3)
-				ft_sort_b();
-		}
+		else if (stacks()->a->content <= temp->content)
+			ft_push_b();
 		else
 			ft_rotate_a();
 	}
