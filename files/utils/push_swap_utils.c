@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/02 00:32:57 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/02 13:11:44 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,31 +35,44 @@ void	populate_stacks(char **argv)
 
 void	populate_stack_b(void)
 {
+	int		i;
 	t_list	*temp;
 
 	while (ft_lstsize(stacks()->a) > 3)
 	{
+		if (ft_lstsize(stacks()->a) < NUM_IT)
+		{
+			ft_push_b();
+			continue ;
+		}
 		temp = return_middle(&stacks()->sorted);
-		if (ft_lstsize(stacks()->a) < ft_lstsize(temp))
-			ft_push_b();
-		else if (stacks()->a->content <= temp->content)
-			ft_push_b();
-		else
-			ft_rotate_a();
+		i = 0;
+		while (i < NUM_IT && ft_lstsize(stacks()->a) > 3)
+		{
+			if (stacks()->a->content <= temp->content)
+			{
+				ft_push_b();
+				i++;
+			}
+			else
+				ft_rotate_a();
+		}
 	}
 }
 
 t_list	*return_middle(t_list **start)
 {
-	t_list	*fast;
-	t_list	*slow;
+	static int		i = NUM_IT;
+	int				j;
+	t_list			*list;
 
-	fast = *start;
-	slow = *start;
-	while (fast && fast->next)
+	j = i;
+	list = *start;
+	while (j > 0 && list->next)
 	{
-		slow = slow->next;
-		fast = fast->next->next;
+		j--;
+		list = list->next;
 	}
-	return (slow);
+	i += NUM_IT;
+	return (list);
 }

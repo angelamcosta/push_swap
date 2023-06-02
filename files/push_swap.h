@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/02 00:31:50 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/02 13:24:58 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
+# define NUM_IT 10
 
 typedef struct s_list
 {
@@ -45,6 +46,9 @@ void		ft_swap_a(void);
 void		ft_swap_b(void);
 void		ft_swap_ss(void);
 void		ft_swap(t_list **from);
+void	calculate_cost(void);
+int		calculate_cost_a(int nb);
+int		calculate_cost_b(int nb);
 t_stacks	*stacks(void);
 void		bubble_sort(void);
 void		free_stacks(void);
@@ -53,9 +57,10 @@ void		free_list(t_list *stack);
 void		populate_stack_b(void);
 void		populate_stacks(char **argv);
 t_list		*return_middle(t_list **start);
-void		ft_sort(void);
-void		sort_stack_a(void);
-void		sort_all(int i, int j);
+void	ft_sort(void);
+void	sort_stack_a(void);
+void	sort_all(int i, int j);
+void	sort_all_b(int i, int j);
 t_list		*ft_lstnew(int content);
 int			ft_lstsize(t_list *list);
 void		ft_lstiter(t_list *list);

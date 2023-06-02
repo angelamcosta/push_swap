@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:49:34 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/02 00:31:38 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/02 13:20:37 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	ft_sort(void);
 void	sort_stack_a(void);
 void	sort_all(int i, int j);
+void	sort_all_b(int i, int j);
 
 void	sort_stack_a(void)
 {
@@ -80,5 +81,33 @@ void	sort_all(int i, int j)
 		j = ft_lstsize(stacks()->a) - i;
 		while (j-- > 0)
 			ft_rotate_a();
+	}
+}
+
+void	sort_all_b(int i, int j)
+{
+	if (i <= ((ft_lstsize(stacks()->b) - 1) / 2))
+	{
+		ft_swap_b();
+		while (j++ < i - 1)
+		{
+			ft_rotate_b();
+			ft_swap_b();
+		}
+		j = 0;
+		while (j++ < i - 1)
+			ft_reverser_b();
+	}
+	else
+	{
+		j = ft_lstsize(stacks()->b) - i - 1;
+		while (j-- > 0)
+		{
+			ft_reverser_b();
+			ft_swap_b();
+		}
+		j = ft_lstsize(stacks()->b) - i;
+		while (j-- > 0)
+			ft_rotate_b();
 	}
 }
