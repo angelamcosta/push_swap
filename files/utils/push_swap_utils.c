@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/02 13:11:44 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/02 13:28:04 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -62,10 +62,11 @@ void	populate_stack_b(void)
 
 t_list	*return_middle(t_list **start)
 {
-	static int		i = NUM_IT;
-	int				j;
-	t_list			*list;
+	static int	i;
+	int			j;
+	t_list		*list;
 
+	i = NUM_IT;
 	j = i;
 	list = *start;
 	while (j > 0 && list->next)
