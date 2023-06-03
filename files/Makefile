@@ -1,11 +1,10 @@
 NAME	=	push_swap
 
 CC		=	cc
-CFLAGS	=	-Wall -Werror -Wextra
+CFLAGS	=	-Wall -Werror -Wextra -g
 RM		=	rm -f
 
 SRCS	=	push_swap.c \
-			./utils/costs_utils.c \
 			./utils/general_utils.c \
 			./utils/push_swap_utils.c \
 			./utils/sort_utils.c \

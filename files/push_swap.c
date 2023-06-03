@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:09:02 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/02 13:21:58 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/03 22:01:23 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,11 +23,6 @@ int	main(int argc, char **argv)
 	{
 		free_stacks();
 		return (write(1, "Error\n", 6));
-	}
-	while (ft_lstsize(stacks()->b) > 0)
-	{
-		ft_push_a();
-		ft_sort();
 	}
 	free_stacks();
 	return (0);

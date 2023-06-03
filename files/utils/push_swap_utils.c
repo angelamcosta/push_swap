@@ -6,15 +6,17 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/02 13:28:04 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/03 22:01:03 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	populate_stack_b(void);
+void	min_iterations(void);
+void	max_iterations(void);
 void	populate_stacks(char **argv);
-t_list	*return_middle(t_list **start);
+t_list	*return_middle_min(t_list **start);
+t_list	*return_middle_max(t_list **start);
 
 void	populate_stacks(char **argv)
 {
@@ -29,27 +31,27 @@ void	populate_stacks(char **argv)
 	if (is_sorted(stacks()->a) || has_repeats(stacks()->a))
 		return ;
 	bubble_sort();
-	populate_stack_b();
-	sort_stack_a();
+	if (ft_lstsize(stacks()->sorted) >= 500)
+		max_iterations();
+	else
+		min_iterations();
 }
 
-void	populate_stack_b(void)
+void	min_iterations(void)
 {
 	int		i;
+	int		j;
 	t_list	*temp;
 
-	while (ft_lstsize(stacks()->a) > 3)
+	j = 0;
+	while (j < ft_lstsize(stacks()->a))
 	{
-		if (ft_lstsize(stacks()->a) < NUM_IT)
-		{
-			ft_push_b();
-			continue ;
-		}
-		temp = return_middle(&stacks()->sorted);
+		temp = return_middle_min(&stacks()->sorted);
 		i = 0;
-		while (i < NUM_IT && ft_lstsize(stacks()->a) > 3)
+		while (i <= MIN_IT && i < ft_lstsize(stacks()->a))
 		{
-			if (stacks()->a->content <= temp->content)
+			if (stacks()->a->content >= temp->content
+				&& stacks()->a->content <= (temp->content + MIN_IT))
 			{
 				ft_push_b();
 				i++;
@@ -57,16 +59,17 @@ void	populate_stack_b(void)
 			else
 				ft_rotate_a();
 		}
+		moves_b();
+		j += i;
 	}
 }
 
-t_list	*return_middle(t_list **start)
+t_list	*return_middle_min(t_list **start)
 {
-	static int	i;
-	int			j;
-	t_list		*list;
+	static int		i = MIN_IT;
+	int				j;
+	t_list			*list;
 
-	i = NUM_IT;
 	j = i;
 	list = *start;
 	while (j > 0 && list->next)
@@ -74,6 +77,50 @@ t_list	*return_middle(t_list **start)
 		j--;
 		list = list->next;
 	}
-	i += NUM_IT;
+	i += MIN_IT;
+	return (list);
+}
+
+void	max_iterations(void)
+{
+	int		i;
+	int		j;
+	t_list	*temp;
+
+	j = 0;
+	while (j < ft_lstsize(stacks()->a))
+	{
+		temp = return_middle_max(&stacks()->sorted);
+		i = 0;
+		while (i <= MAX_IT && i < ft_lstsize(stacks()->a))
+		{
+			if (stacks()->a->content >= temp->content
+				&& stacks()->a->content <= (temp->content + MAX_IT))
+			{
+				ft_push_b();
+				i++;
+			}
+			else
+				ft_rotate_a();
+		}
+		moves_b();
+		j += i;
+	}
+}
+
+t_list	*return_middle_max(t_list **start)
+{
+	static int		i = MAX_IT;
+	int				j;
+	t_list			*list;
+
+	j = i;
+	list = *start;
+	while (j > 0 && list->next)
+	{
+		j--;
+		list = list->next;
+	}
+	i += MAX_IT;
 	return (list);
 }

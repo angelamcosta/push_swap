@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/16 15:46:17 by anlima            #+#    #+#             */
-/*   Updated: 2023/05/31 14:46:56 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/03 22:00:58 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,18 +73,22 @@ void	free_stacks(void)
 void	bubble_sort(void)
 {
 	int		temp;
+	int		sorted;
 	t_list	*start;
 
-	while (!is_sorted(stacks()->sorted))
+	sorted = 0;
+	while (!sorted)
 	{
 		start = stacks()->sorted;
+		sorted = 1;
 		while (start->next)
 		{
-			if (start->content > start->next->content)
+			if (start->content < start->next->content)
 			{
 				temp = start->content;
 				start->content = start->next->content;
 				start->next->content = temp;
+				sorted = 0;
 			}
 			start = start->next;
 		}
