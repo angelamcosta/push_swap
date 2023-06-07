@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/24 16:49:34 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/03 22:01:08 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:39:33 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,7 @@
 void	moves_b(void);
 int		get_index(int nb);
 int		find_biggest(void);
+void	sort_stack_a(void);
 
 int	get_index(int nb)
 {
@@ -76,4 +77,16 @@ void	moves_b(void)
 			ft_push_a();
 		}
 	}
+}
+
+void	sort_stack_a(void)
+{
+	if (stacks()->a->content > stacks()->a->next->content
+		&& stacks()->a->content > ft_lstlast(stacks()->a)->content)
+		ft_rotate_a();
+	else if (stacks()->a->next->content > stacks()->a->content
+		&& stacks()->a->next->content > ft_lstlast(stacks()->a)->content)
+		ft_reverser_a();
+	if (stacks()->a->content > stacks()->a->next->content)
+		ft_swap_a();
 }

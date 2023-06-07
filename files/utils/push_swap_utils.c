@@ -6,21 +6,22 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:15:45 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/03 22:01:03 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:38:55 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../push_swap.h"
 
-void	min_iterations(void);
-void	max_iterations(void);
 void	populate_stacks(char **argv);
-t_list	*return_middle_min(t_list **start);
-t_list	*return_middle_max(t_list **start);
+void	sort_small_list(t_list *start);
+void	sort_iterations(int nb, int c, int k);
+int		make_iterations(t_list **start, int nb);
+void	make_moves(int nb, int c, int temp, int j);
 
 void	populate_stacks(char **argv)
 {
 	int	i;
+	int	j;
 
 	i = -1;
 	while (argv && argv[++i])
@@ -31,45 +32,62 @@ void	populate_stacks(char **argv)
 	if (is_sorted(stacks()->a) || has_repeats(stacks()->a))
 		return ;
 	bubble_sort();
-	if (ft_lstsize(stacks()->sorted) >= 500)
-		max_iterations();
+	j = ft_lstsize(stacks()->sorted);
+	if (j <= 5)
+		sort_small_list(stacks()->sorted);
+	else if (j < 50)
+		sort_iterations(j / 2, 2, j % 2);
 	else
-		min_iterations();
+		sort_iterations(j / 5, 5, j % 5);
 }
 
-void	min_iterations(void)
+void	sort_iterations(int nb, int c, int k)
 {
-	int		i;
-	int		j;
-	t_list	*temp;
+	int	max;
+	int	min;
 
-	j = 0;
-	while (j < ft_lstsize(stacks()->a))
+	max = INT_MAX;
+	while (c--)
 	{
-		temp = return_middle_min(&stacks()->sorted);
-		i = 0;
-		while (i <= MIN_IT && i < ft_lstsize(stacks()->a))
-		{
-			if (stacks()->a->content >= temp->content
-				&& stacks()->a->content <= (temp->content + MIN_IT))
-			{
-				ft_push_b();
-				i++;
-			}
-			else
-				ft_rotate_a();
-		}
+		min = make_iterations(&stacks()->sorted, nb);
+		if (c == 0)
+			nb = nb + k;
+		make_moves(nb, c, min, max);
 		moves_b();
-		j += i;
+		max = stacks()->a->content - 1;
 	}
 }
 
-t_list	*return_middle_min(t_list **start)
+void	make_moves(int nb, int c, int min, int max)
 {
-	static int		i = MIN_IT;
+	int	i;
+
+	i = 0;
+	while (i < nb)
+	{
+		if (c == 0 && stacks()->a->content >= INT_MIN
+			&& stacks()->a->content <= max)
+		{
+			ft_push_b();
+			i++;
+		}
+		else if (stacks()->a->content > min && stacks()->a->content <= max)
+		{
+			ft_push_b();
+			i++;
+		}
+		else
+			ft_rotate_a();
+	}
+}
+
+int	make_iterations(t_list **start, int nb)
+{
+	static int		i;
 	int				j;
 	t_list			*list;
 
+	i += nb;
 	j = i;
 	list = *start;
 	while (j > 0 && list->next)
@@ -77,50 +95,34 @@ t_list	*return_middle_min(t_list **start)
 		j--;
 		list = list->next;
 	}
-	i += MIN_IT;
-	return (list);
+	return (list->content);
 }
 
-void	max_iterations(void)
+void	sort_small_list(t_list *start)
 {
-	int		i;
-	int		j;
-	t_list	*temp;
+	int	second;
 
-	j = 0;
-	while (j < ft_lstsize(stacks()->a))
+	while (start->next)
 	{
-		temp = return_middle_max(&stacks()->sorted);
-		i = 0;
-		while (i <= MAX_IT && i < ft_lstsize(stacks()->a))
+		if (start->next->content == ft_lstlast(start)->content)
 		{
-			if (stacks()->a->content >= temp->content
-				&& stacks()->a->content <= (temp->content + MAX_IT))
-			{
-				ft_push_b();
-				i++;
-			}
-			else
-				ft_rotate_a();
+			second = start->content;
+			break ;
 		}
-		moves_b();
-		j += i;
+		start = start->next;
 	}
-}
-
-t_list	*return_middle_max(t_list **start)
-{
-	static int		i = MAX_IT;
-	int				j;
-	t_list			*list;
-
-	j = i;
-	list = *start;
-	while (j > 0 && list->next)
+	while (ft_lstsize(stacks()->a) > 3)
 	{
-		j--;
-		list = list->next;
+		if (stacks()->a->content == ft_lstlast(start)->content)
+			ft_push_b();
+		else if (stacks()->a->content == second)
+			ft_push_b();
+		else
+			ft_rotate_a();
 	}
-	i += MAX_IT;
-	return (list);
+	sort_stack_a();
+	while (ft_lstsize(stacks()->b) > 0)
+		ft_push_a();
+	if (stacks()->a->content > stacks()->a->next->content)
+		ft_swap_a();
 }

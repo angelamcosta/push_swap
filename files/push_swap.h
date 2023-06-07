@@ -6,7 +6,7 @@
 /*   By: anlima <anlima@student.42lisboa.com>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/09 13:14:31 by anlima            #+#    #+#             */
-/*   Updated: 2023/06/03 22:01:27 by anlima           ###   ########.fr       */
+/*   Updated: 2023/06/07 15:39:45 by anlima           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@
 # include <stdlib.h>
 # include <limits.h>
 # include <stdio.h>
-# define MIN_IT 20
+# define MIN_IT 5
 # define MAX_IT 100
 
 typedef struct s_list
@@ -52,14 +52,15 @@ void		bubble_sort(void);
 void		free_stacks(void);
 int			ft_atoi(char *str);
 void		free_list(t_list *stack);
-void		min_iterations(void);
-void		max_iterations(void);
 void		populate_stacks(char **argv);
-t_list		*return_middle_min(t_list **start);
-t_list		*return_middle_max(t_list **start);
+void		sort_small_list(t_list *start);
+void		sort_iterations(int nb, int c, int k);
+int			make_iterations(t_list **start, int nb);
+void		make_moves(int nb, int c, int temp, int j);
 void		moves_b(void);
 int			get_index(int nb);
 int			find_biggest(void);
+void		sort_stack_a(void);
 t_list		*ft_lstnew(int content);
 int			ft_lstsize(t_list *list);
 void		ft_lstiter(t_list *list);
