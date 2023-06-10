@@ -13,10 +13,9 @@
 
 Push_swap is a program written in C that solves the sorting problem for two stacks named `a` and `b`. The goal is to sort the numbers in stack `a` in ascending order using a specific set of operations. The program aims to find the smallest list of instructions to achieve the desired sorted state. The subject of the project can be found in this [link](https://raw.githubusercontent.com/angelamcosta/push_swap/main/en.subject.pdf).
 
-## 🎮 Game rules
+## 🎮 Project rules
 
-- The game is composed of 2 stacks named `a` and `b`.
-- To start with:
+- The program is composed of 2 stacks named `a` and `b`.
   - the stack `a` contains a random amount of negative and/or positive numbers which cannot be duplicated.
   - `b` is empty.
 - The goal is to sort in ascending order numbers into stack `a`.
