@@ -38,6 +38,7 @@ int	ft_atoi(char *str)
 	nb = 0;
 	if (str[i] == '-')
 		i++;
+	// add protection to wrong inputs
 	while (i < len)
 		nb = (nb * 10) + (str[i++] - 48);
 	if (str[0] == '-')
